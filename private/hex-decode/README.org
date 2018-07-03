@@ -1,0 +1,22 @@
+#+TITLE: hex-decode layer
+
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+  - [[#features][Features:]]
+- [[#install][Install]]
+
+* Description
+This layer adds =spacemacs/hex-{de,en}code-region= and
+=spacemacs/hex-{en,de}code-string= functions which can de(en)code HEX
+representation of data. For instance, convert 414243 to ABC and backwards.
+
+This functions are a bit better than internal ones as they ignore space
+characters in input HEX buffer.
+
+** Features:
+  - decode/encode HEX representation of data
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =hex-decode= to the existing =dotspacemacs-configuration-layers= list in
+this file.
