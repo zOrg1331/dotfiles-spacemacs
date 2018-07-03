@@ -1,0 +1,19 @@
+#+TITLE: linux-kernel-style layer
+
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+  - [[#features][Features:]]
+- [[#install][Install]]
+
+* Description
+This layer adds =spacemacs/linux-kernel-style= c-mode hook which verifies if the
+current C file belongs to Linux kernel source tree. If it is it sets current C
+style to =linux-tabs-only=.
+
+** Features:
+  - automatically set proper Linux kernel formatting for C sources
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =linux-kernel-style= to the existing =dotspacemacs-configuration-layers= list in this
+file.
