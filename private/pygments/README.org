@@ -1,0 +1,22 @@
+#+TITLE: pygments layer
+
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+  - [[#features][Features:]]
+- [[#install][Install]]
+
+* Description
+This layer adds =spacemacs/pygments-html= and =spacemacs/pygments-html-preview= commands
+which generate HTML output with *selected region* colorized by =pygmentize3=
+command from Pygments <http://pygments.org/> package.
+
+** Features:
+  - creates HTML pages with formatted code snippets
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =pygments= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+Make sure that =pygmentize3= command is available on your system, if not,
+install it using your package manager or do =pip3 install pygments=.
