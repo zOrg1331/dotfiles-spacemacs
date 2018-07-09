@@ -1,0 +1,21 @@
+#+TITLE: sqlitedump layer
+
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+  - [[#features][Features:]]
+- [[#install][Install]]
+
+* Description
+This layer adds =sqlite-dump= command to show SQLite database files in
+human-readable format. It uses local version of sqlite-dump
+<https://user42.tuxfamily.org/sqlite-dump/index.html> package.
+
+This layer also sets handler to auto-apply this command for '.db' files.
+
+** Features:
+  - shows SQLite database files in human-readable format
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =sqlitedump= to the existing =dotspacemacs-configuration-layers= list in
+this file.

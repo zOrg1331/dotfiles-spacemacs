@@ -77,6 +77,7 @@ This function should only modify configuration layer settings."
      pygments
      linux-kernel-style
      hex-decode
+     sqlitedump
      )
 
    ;; List of additional packages that will be installed without being
