@@ -1,0 +1,17 @@
+#+TITLE: visualbasic layer
+
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+  - [[#features][Features:]]
+- [[#install][Install]]
+
+* Description
+This layer adds =visual-basic-mode= support.
+
+** Features:
+  - syntax highlight and other usefull stuff for VB source files
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =visualbasic= to the existing =dotspacemacs-configuration-layers= list in
+this file.
