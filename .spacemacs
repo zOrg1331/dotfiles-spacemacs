@@ -41,7 +41,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      git
@@ -80,6 +80,13 @@ This function should only modify configuration layer settings."
      hex-decode
      sqlitedump
      visualbasic
+
+     ;; run gofmt before save
+     (setq go-format-before-save t)
+     ;;
+     (go :variables go-tab-width 4)
+     ;; use gogetdoc for autocomplete
+     (go :variables godoc-at-point-function 'godoc-gogetdoc)
      )
 
    ;; List of additional packages that will be installed without being
@@ -478,6 +485,8 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; set powerline theme
   (setq powerline-default-separator 'butt)
+
+  (add-to-list 'exec-path "~/go/bin/")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
