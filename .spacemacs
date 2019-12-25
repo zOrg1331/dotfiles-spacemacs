@@ -488,6 +488,9 @@ before packages are loaded."
   ;; run gofmt before save
   (setq go-format-before-save t)
   (add-to-list 'exec-path "~/go/bin/")
+
+  ;; set lynx-style navigation for helm-find-files
+  (customize-set-variable 'helm-ff-lynx-style-map t) 
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
