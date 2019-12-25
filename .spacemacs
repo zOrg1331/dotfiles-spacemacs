@@ -82,8 +82,6 @@ This function should only modify configuration layer settings."
      sqlitedump
      visualbasic
 
-     ;; run gofmt before save
-     (setq go-format-before-save t)
      ;;
      (go :variables go-tab-width 4)
      ;; use gogetdoc for autocomplete
@@ -487,6 +485,8 @@ before packages are loaded."
   ;; set powerline theme
   (setq powerline-default-separator 'butt)
 
+  ;; run gofmt before save
+  (setq go-format-before-save t)
   (add-to-list 'exec-path "~/go/bin/")
   )
 
