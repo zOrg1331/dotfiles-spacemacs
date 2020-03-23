@@ -69,6 +69,7 @@ This function should only modify configuration layer settings."
      java
      javascript
      latex
+     lsp
      lua
      python
      ruby
@@ -81,11 +82,6 @@ This function should only modify configuration layer settings."
      hex-decode
      sqlitedump
      visualbasic
-
-     ;;
-     (go :variables go-tab-width 4)
-     ;; use gogetdoc for autocomplete
-     (go :variables godoc-at-point-function 'godoc-gogetdoc)
      )
 
    ;; List of additional packages that will be installed without being
@@ -486,12 +482,43 @@ before packages are loaded."
   ;; set powerline theme
   (setq powerline-default-separator 'butt)
 
-  ;; run gofmt before save
+  ;; golang settings
   (setq go-format-before-save t)
+  (setq go-tab-width 4)
+  (setq go-backend 'lsp)
+  (setq godoc-at-point-function 'godoc-gogetdoc)
   (add-to-list 'exec-path "~/go/bin/")
 
   ;; set lynx-style navigation for helm-find-files
-  (customize-set-variable 'helm-ff-lynx-style-map t) 
+  (customize-set-variable 'helm-ff-lynx-style-map t)
+
+  ;; disable company for text modes
+  (spacemacs|disable-company org-mode)
+
+  ;; C/C++
+  (setq c-c++-backend 'lsp-ccls)
+  (setq c-c++-default-mode-for-headers 'k&r-mode)
+  (setq c-c++-enable-google-style t)
+  (setq c-c++-enable-c++11 t)
+  (setq c-c++-lsp-sem-highlight-method 'overlay)
+  (setq c-c++-lsp-sem-highlight-rainbow t)
+  (setq c++-enable-organize-includes-on-save t)
+
+  ;; cmake
+  (setq cmake-enable-cmake-ide-support t)
+
+  ;; auto-completion
+  (setq auto-completion-return-key-behavior nil)
+  (setq auto-completion-tab-key-behavior 'complete)
+  (setq auto-completion-complete-with-key-sequence-delay 0.2)
+  (setq auto-completion-enable-help-tooltip 'manual)
+  (setq auto-completion-enable-snippets-in-popup t)
+  (setq auto-completion-enable-sort-by-usage t)
+  (setq auto-completion-use-company-box t)
+
+  ;; LSP
+  (setq lsp-ui-doc-enable nil)
+  (setq lsp-ui-sideline-enable nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
