@@ -92,7 +92,8 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
-     urlenc
+                                      urlenc
+                                      ox-gfm
      )
 
    ;; A list of packages that cannot be updated.
@@ -519,6 +520,10 @@ before packages are loaded."
   ;; LSP
   (setq lsp-ui-doc-enable nil)
   (setq lsp-ui-sideline-enable nil)
+
+  ;; enable ox-gfm mode for org buffers
+  (eval-after-load "org"
+    '(require 'ox-gfm nil t))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
