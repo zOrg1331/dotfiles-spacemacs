@@ -48,10 +48,8 @@ This function should only modify configuration layer settings."
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       auto-completion-tab-key-behavior 'cycle
-                      auto-completion-minimum-prefix-length 1
                       auto-completion-enable-snippets-in-popup t
-                      auto-completion-enable-help-tooltip t
-                      auto-completion-enable-sort-by-usage nil)
+                      auto-completion-enable-help-tooltip t)
 
      ;; better-defaults
      emacs-lisp
@@ -126,8 +124,19 @@ This function should only modify configuration layer settings."
      ;; visualbasic
      ;; groovy
 
+     json
+     (json :variables
+           js-indent-level 2
+           json-fmt-tool 'prettier
+           json-fmt-on-save t
+           json-backend 'lsp)
+
      (auto-completion :disabled-for
                       org git markdown)
+
+     unicode-fonts
+     (unicode-fonts :variables
+                    unicode-fonts-force-multi-color-on-mac t)
      )
 
    ;; List of additional packages that will be installed without being
@@ -141,7 +150,8 @@ This function should only modify configuration layer settings."
                                       urlenc
                                       ;; ox-gfm
                                       rego-mode
-     )
+                                      colorful-mode
+                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -300,7 +310,12 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(zenburn spacemacs-dark spacemacs-light)
+   dotspacemacs-themes '(
+                         (nier-automata :location local)
+                         zenburn
+                         spacemacs-dark
+                         spacemacs-light
+                         )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -313,12 +328,13 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
-   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-colorize-cursor-according-to-state nil
 
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Iosevka Fixed"
                                :size 14.0
+                               :dpi 163
                                :weight normal
                                :width normal)
 
@@ -624,7 +640,7 @@ before packages are loaded."
   ;;(setq debug-on-error t)
 
   ;; set powerline theme
-  ;(setq powerline-default-separator 'butt)
+  ;;(setq powerline-default-separator 'butt)
 
   ;; golang settings
   (add-to-list 'exec-path "~/go/bin/")
@@ -658,24 +674,24 @@ before packages are loaded."
     '(require 'ox-gfm nil t))
 
   ;; disable auto new line in verilog mode
-  ;(setq verilog-auto-newline nil)
+  ;;(setq verilog-auto-newline nil)
   ;; disable indent on new line
-  ;(setq verilog-auto-indent-on-newline nil)
+  ;;(setq verilog-auto-indent-on-newline nil)
   ;; set linter to a known command (C-c C-s)
-  ;(setq verilog-linter "verilator --lint-only -Wall")
+  ;;(setq verilog-linter "verilator --lint-only -Wall")
 
   ;; globally enable delete-selection mode
   (delete-selection-mode 1)
 
   ;; latex: force backend
-  ;(setq (latex :variables latex-backend 'lsp))
+  ;;(setq (latex :variables latex-backend 'lsp))
   ;; latex: auto refresh preview
-  ;(setq (latex :variables latex-refresh-preview t))
+  ;;(setq (latex :variables latex-refresh-preview t))
   ;; latex: enable folding and magic symbols
   ;;(setq (latex :variables latex-enable-folding t))
   ;;(setq (latex :variables latex-enable-magic t))
   ;; latex: disable autofill
-  ;(setq (latex :variables latex-enable-auto-fill nil))
+  ;;(setq (latex :variables latex-enable-auto-fill nil))
 
   (custom-set-faces
    '(company-tooltip-common
@@ -692,7 +708,8 @@ before packages are loaded."
     (helm-ag :location (recipe
                         :fetcher github
                         :repo "zozowell/helm-ag"
-                        :branch "further-support-rg")))
+                        :branch "further-support-rg"))
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
